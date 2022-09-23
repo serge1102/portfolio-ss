@@ -9,13 +9,14 @@ import Hero from "../components/Hero";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 import WorkExperience from "../components/WorkExperience";
-import { urlFor } from "../sanity";
+import { sanityClient, urlFor } from "../sanity";
 import { Experience, PageInfo, Project, Skill, Social } from "../typings";
 import { fetchExperiences } from "../utils/fetchExperiences";
 import { fetchPageInfo } from "../utils/fetchPageInfo";
 import { fetchProjects } from "../utils/fetchProjects";
 import { fetchSkills } from "../utils/fetchSkills";
 import { fetchSocials } from "../utils/fetchSocials";
+import { queryExperience, queryPageInfo, queryProjects, querySkills, querySocials } from "../utils/groq/groqUtil";
 
 type Props = {
   pageInfo: PageInfo;
@@ -79,11 +80,17 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pageInfo: PageInfo = await fetchPageInfo();
-  const experiences: Experience[] = await fetchExperiences();
-  const skills: Skill[] = await fetchSkills();
-  const projects: Project[] = await fetchProjects();
-  const socials: Social[] = await fetchSocials();
+  // const pageInfo: PageInfo = await fetchPageInfo();
+  // const experiences: Experience[] = await fetchExperiences();
+  // const skills: Skill[] = await fetchSkills();
+  // const projects: Project[] = await fetchProjects();
+  // const socials: Social[] = await fetchSocials();
+
+  const pageInfo: PageInfo = await sanityClient.fetch(queryPageInfo);
+  const experiences: Experience[] = await sanityClient.fetch(queryExperience);
+  const skills: Skill[] = await sanityClient.fetch(querySkills);
+  const projects: Project[] = await sanityClient.fetch(queryProjects);
+  const socials: Social[] = await sanityClient.fetch(querySocials);
 
   return {
     props: {
