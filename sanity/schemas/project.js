@@ -18,9 +18,10 @@ export default {
       },
     },
     {
-      name: "summary",
-      title: "Summary",
-      type: "text",
+      name: "points",
+      title: "Points",
+      type: "array",
+      of: [{ type: "string" }],
     },
     {
       name: "technologies",

@@ -13,9 +13,9 @@ type Props = {
 export default function Hero({ pageInfo }: Props) {
   const [text, count] = useTypewriter({
     words: [
-      `Hi, The Names's ${pageInfo?.name}`,
-      "Guy-who-loves-Coffee.tsx",
-      "<ButLovesToCodeMore />",
+      `Hi, My name is ${pageInfo?.name}`,
+      "Guy-who-loves-Coding.tsx",
+      "<AndAlso Cats, Games, Movies />",
     ],
     loop: true,
     delaySpeed: 2000,
@@ -23,35 +23,23 @@ export default function Hero({ pageInfo }: Props) {
   return (
     <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
       <BackgroundCircles />
-      <Image
-        className="relative rounded-full h-32 w-32 mx-auto object-cover"
-        src={urlFor(pageInfo?.heroImage).url()}
-        width={100}
-        height={100}
-        alt="myimage"
-      />
+      <div className="mt-15">
+        <Image
+          className="relative rounded-full h-32 w-32 mx-auto object-cover"
+          src={urlFor(pageInfo?.heroImage).url()}
+          width={100}
+          height={100}
+          alt="myimage"
+        />
+      </div>
       <div className="z-20">
-        <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
+        <h2 className="text-lg uppercase text-sunset-orange/80 pb-2 tracking-[15px]">
           {pageInfo.role}
         </h2>
-        <h1 className="text-2xl lg:text-6xl font-semibold px-10">
+        <h1 className="text-2xl lg:text-6xl font-semibold px-10 min-h-[100px]">
           <span className="mr-3">{text}</span>
           <Cursor cursorColor="#F7AB0A" />
         </h1>
-        <div className="pt-5">
-          <Link href="#about">
-            <button className="heroButton">About</button>
-          </Link>
-          <Link href="#exprerience">
-            <button className="heroButton">Experience</button>
-          </Link>
-          <Link href="#skills">
-            <button className="heroButton">Skills</button>
-          </Link>
-          <Link href="#projects">
-            <button className="heroButton">Projects</button>
-          </Link>
-        </div>
       </div>
     </div>
   );

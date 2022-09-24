@@ -4,10 +4,10 @@
 
 @layer components {
   .heroButton {
-    @apply px-6 py-2 border border-[#242424] rounded-full uppercase text-sm tracking-widest text-gray-500 transition-all hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40;
+    @apply px-6 py-4 border border-none rounded-full uppercase text-sm md:text-lg tracking-widest text-sunset-blue transition-all hover:border-sunset-orange/40 hover:text-sunset-orange/40;
   }
 
   .contactInput {
-    @apply outline-none bg-slate-400/10 rounded-sm border-b px-6 py-4 border-[#242424] text-gray-500 placeholder-gray-500 transition-all focus:border-[#F7AB0A]/40 focus:text-[#F7AB0A]/40
+    @apply outline-none bg-slate-400/10 rounded-sm border-b px-6 py-4 border-sunset-blue text-sunset-blue placeholder-gray-500 transition-all focus:border-sunset-orange/40 focus:text-sunset-orange/40;
   }
 }

@@ -24,7 +24,7 @@ export default {
     {
       name: "backgroundInfomation",
       title: "BackgroundInfomation",
-      type: "string",
+      type: "text",
     },
     {
       name: "profilePic",

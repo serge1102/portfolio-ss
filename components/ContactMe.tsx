@@ -34,16 +34,8 @@ export default function ContactMe({}: Props) {
 
         <div className="space-y-10">
           <div className="flex items-center space-x-5 justify-center">
-            <PhoneIcon className="text-[#F7BA0A] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">+123456789</p>
-          </div>
-          <div className="flex items-center space-x-5 justify-center">
             <EnvelopeIcon className="text-[#F7BA0A] h-7 w-7 animate-pulse" />
             <p className="text-2xl">+papareact.team@gmail.com</p>
-          </div>
-          <div className="flex items-center space-x-5 justify-center">
-            <MapPinIcon className="text-[#F7BA0A] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">123 Developer Lane</p>
           </div>
         </div>
 
@@ -78,7 +70,7 @@ export default function ContactMe({}: Props) {
           />
           <button
             type="submit"
-            className="bg-[#F7AB0A] py-5 px-10 rounded-md text-black font-bold text-lg"
+            className="bg-sunset-orange py-5 px-10 rounded-md text-black font-bold text-lg"
           >
             Submit
           </button>

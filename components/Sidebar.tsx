@@ -1,0 +1,61 @@
+import React from "react";
+import {
+  Bars3Icon,
+  SparklesIcon,
+  DocumentMagnifyingGlassIcon,
+  FireIcon,
+  UserIcon,
+} from "@heroicons/react/24/solid";
+import SidebarRow from "./SidebarRow";
+
+type Props = {
+  sidebarOn: boolean;
+  setSidebarOn: (sidebarOn: boolean) => void;
+};
+
+export default function Sidebar({ sidebarOn, setSidebarOn }: Props) {
+  function toAnchor(anchorId: string) {
+    setSidebarOn(!sidebarOn);
+    let toel = document.getElementById(anchorId);
+    toel!.scrollIntoView(true);
+  }
+
+  return (
+    <div className="top-0 right-0 fixed h-screen w-screen z-40 bg-[#fff7ee] flex-col">
+      <div
+        className="flex justify-end items-center mx-auto"
+        onClick={() => setSidebarOn(!sidebarOn)}
+      >
+        <Bars3Icon className="text-sunset-blue h-7 w-7 mt-5 mr-6" />
+      </div>
+
+      <div className="p-10">
+        <SidebarRow
+          Icon={UserIcon}
+          title="About"
+          anchorId="about"
+          toAnchor={toAnchor}
+        />
+        <SidebarRow
+          Icon={FireIcon}
+          title="Experience"
+          anchorId="experience"
+          toAnchor={toAnchor}
+        />
+        <SidebarRow
+          Icon={SparklesIcon}
+          title="Skills"
+          anchorId="skills"
+          toAnchor={toAnchor}
+        />
+        <SidebarRow
+          Icon={DocumentMagnifyingGlassIcon}
+          title="Projects"
+          anchorId="projects"
+          toAnchor={toAnchor}
+        />
+      </div>
+    </div>
+  );
+}
+
