@@ -1,20 +1,13 @@
 export default {
-  name: "skill",
-  title: "Skill",
+  name: "certification",
+  title: "Certification",
   type: "document",
   fields: [
     {
       name: "title",
       title: "Title",
-      description: "Title of skill",
+      description: "Title of certification",
       type: "string",
-    },
-    {
-      name: "progress",
-      title: "Progress",
-      type: "number",
-      description: "Progress of skill from 0 to 100%",
-      validation: (Rule) => Rule.min(0).max(100),
     },
     {
       name: "displayOrder",
@@ -32,18 +25,18 @@ export default {
     {
       name: "square",
       title: "Square",
-      type: "boolean"
-    }
+      type: "boolean",
+    },
   ],
   orderings: [
     {
-      name: "Skill Order Desc",
-      title: "skill Order",
+      name: "certification Order Desc",
+      title: "Certification Order",
       by: [{ field: "displayOrder", direction: "desc" }],
     },
     {
-      name: "Skill Order Asc",
-      title: "skill Order",
+      name: "certification Order Asc",
+      title: "Certification Order",
       by: [{ field: "displayOrder", direction: "asc" }],
     },
   ],

@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Project } from "../typings";
 import { urlFor } from "../sanity";
@@ -14,17 +13,17 @@ export default function Projects({ projects }: Props) {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="h-screen relative flex flex-col overflow-hidden text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0"
+      className="h-screen relative flex flex-col overflow-hidden text-left max-w-full 2xl:justify-center mx-auto items-center z-0 pt-[100px]"
     >
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="uppercase tracking-[20px] text-gray-500 text-2xl">
         Projects
       </h3>
 
-      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-track-gray-400/20 scrollbar-thumb-sunset-orange/80 scrollbar-thin">
+      <div className="w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-track-gray-400/20 scrollbar-thumb-sunset-orange/80 scrollbar-thin">
         {projects.map((project, i) => (
           <div
             key={project._id}
-            className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20"
+            className="w-screen flex-shrink-0 snap-center flex flex-col space-y-2 items-center justify-center p-20"
           >
             <motion.div
               initial={{
@@ -42,12 +41,12 @@ export default function Projects({ projects }: Props) {
             >
               <img
                 src={urlFor(project?.image).url()}
-                className="h-20 md:h-80"
+                className="h-20 md:h-40 2xl:h-80"
                 alt="myproject"
               />
             </motion.div>
 
-            <div className="space-y-10 px-0 md:px-10 max-w-6xl">
+            <div className="space-y-2 px-0 md:px-10 max-w-6xl">
               <h4 className="text-xl font-semibold text-center">
                 <span className="underline decoration-sunset-orange/50">
                   Case Study {i + 1} of {projects.length}: <br />
@@ -58,7 +57,8 @@ export default function Projects({ projects }: Props) {
                 {project.technologies.map((tech) => (
                   <img
                     key={tech._id}
-                    className="rounded-full h-10 w-10"
+                    className={`${
+          tech.square ? "" : "rounded-full"} h-10 w-10`}
                     src={urlFor(tech?.image).url()}
                     alt="mytech"
                   />
@@ -67,7 +67,7 @@ export default function Projects({ projects }: Props) {
               {/* <p className="text-lg text-center md:text-left">
                 {project?.summary}
               </p> */}
-              <ul className="list-disc space-y-4 ml-5 text-lg">
+              <ul className="list-disc space-y-1 ml-5 text-lg">
                 {project.points.map((point, i) => (
                   <li key={i}>{point}</li>
                 ))}

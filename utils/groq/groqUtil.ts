@@ -19,9 +19,13 @@ export const queryProjects = groq`
 `;
 
 export const querySkills = groq`
-    *[_type == "skill"]
+    *[_type == "skill"] | order(displayOrder asc)
 `;
 
 export const querySocials = groq`
     *[_type == "social"]
+`;
+
+export const queryCertifications = groq`
+    *[_type == "certification"] | order(displayOrder asc)
 `;

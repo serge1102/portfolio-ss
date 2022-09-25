@@ -37,8 +37,8 @@ export default function Header({ socials, scrollY, sidebarOn, setSidebarOn }: Pr
         ))}
       </motion.div>
       <motion.div
-        initial={{ y: -100, opacity: 0, scale: 0.5 }}
-        animate={{ y: 0, opacity: 1, scale: 1 }}
+        initial={{ x: 500, opacity: 0, scale: 0.5 }}
+        animate={{ x: 0, opacity: 1, scale: 1 }}
         transition={{ duration: 1.5 }}
         viewport={{ once: true }}
         className="hidden md:flex items-center"
@@ -52,11 +52,14 @@ export default function Header({ socials, scrollY, sidebarOn, setSidebarOn }: Pr
         <Link href="#skills">
           <button className="heroButton">Skills</button>
         </Link>
+        <Link href="#certifications">
+          <button className="heroButton">Certifications</button>
+        </Link>
         <Link href="#projects">
           <button className="heroButton">Projects</button>
         </Link>
       </motion.div>
-      <Link href="#contact">
+      {/* <Link href="#contact">
         <motion.div
           initial={{ x: 500, opacity: 0, scale: 0.5 }}
           animate={{ x: 0, opacity: 1, scale: 1 }}
@@ -68,7 +71,7 @@ export default function Header({ socials, scrollY, sidebarOn, setSidebarOn }: Pr
             Get In Touch
           </p>
         </motion.div>
-      </Link>
+      </Link> */}
       <motion.div
         initial={{ x: 500, opacity: 0, scale: 0.5 }}
         animate={{ x: 0, opacity: 1, scale: 1 }}

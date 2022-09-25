@@ -2,9 +2,9 @@ import type { GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useCallback, useEffect } from "react";
+import { useState, useEffect } from "react";
 import About from "../components/About";
-import ContactMe from "../components/ContactMe";
+import Certifications from "../components/Certifications";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Projects from "../components/Projects";
@@ -12,8 +12,9 @@ import Sidebar from "../components/Sidebar";
 import Skills from "../components/Skills";
 import WorkExperience from "../components/WorkExperience";
 import { sanityClient, urlFor } from "../sanity";
-import { Experience, PageInfo, Project, Skill, Social } from "../typings";
+import { Certification, Experience, PageInfo, Project, Skill, Social } from "../typings";
 import {
+  queryCertifications,
   queryExperience,
   queryPageInfo,
   queryProjects,
@@ -27,9 +28,10 @@ type Props = {
   skills: Skill[];
   projects: Project[];
   socials: Social[];
+  certifications: Certification[]
 };
 
-const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
+const Home = ({ pageInfo, experiences, projects, skills, socials, certifications }: Props) => {
   const [scrollY, setScrollY] = useState(0);
   const [sidebarOn, setSidebarOn] = useState(false);
 
@@ -81,6 +83,10 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
         <Skills skills={skills} />
       </section>
 
+      <section id="certifications">
+        <Certifications certifications={certifications} />
+      </section>
+
       <section id="projects">
         <Projects projects={projects} />
       </section>
@@ -117,14 +123,13 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  console.log(await sanityClient.fetch(queryPageInfo));
   const pageInfo: PageInfo = await sanityClient.fetch(queryPageInfo);
   const experiences: Experience[] = await sanityClient.fetch(queryExperience);
   const skills: Skill[] = await sanityClient.fetch(querySkills);
   const _projects: Project[] = await sanityClient.fetch(queryProjects);
   const projects = [_projects[1], _projects[2], _projects[3], _projects[0]];
-  // const projects = projects_b.reverse();
   const socials: Social[] = await sanityClient.fetch(querySocials);
+  const certifications: Certification[] = await sanityClient.fetch(queryCertifications);
 
   return {
     props: {
@@ -133,6 +138,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       skills,
       projects,
       socials,
+      certifications
     },
     revalidate: 10,
   };

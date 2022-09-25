@@ -32,6 +32,7 @@ export interface Technology extends SanityBody {
   image: Image;
   progress: number;
   title: string;
+  square: boolean;
 }
 
 export interface Skill extends SanityBody {
@@ -39,6 +40,8 @@ export interface Skill extends SanityBody {
   image: Image;
   progress: number;
   title: string;
+  displayOrder: number;
+  square: boolean;
 }
 
 export interface Experience extends SanityBody {
@@ -66,4 +69,12 @@ export interface Social extends SanityBody {
   _type: "social";
   title: string;
   url: string;
+}
+
+export interface Certification extends SanityBody {
+  _type: "certification";
+  image: Image;
+  title: string;
+  displayOrder: number;
+  square: boolean;
 }

@@ -14,19 +14,21 @@ export default function ExperienceCard({ experience }: Props) {
       <motion.img
         initial={{ y: -40, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1.2 }}
+        transition={{ duration: 2 }}
         viewport={{ once: true }}
-        className="w-[200px] md:w-auto md:h-[70px] object-cover"
+        className="w-[200px] md:w-[300px] 2xl:w-[400px] object-cover drop-shadow-lg"
         src={urlFor(experience.companyImage).url()}
         alt="myexperience"
       />
-      <div className="px-0 md:px-10 text-left">
-        <p className="font-bold text-2xl mt-1">System Engineer</p>
+      <div className="flex flex-col justify-center items-center px-0 md:px-10 text-left">
+        <p className="font-bold text-2xl md:text-4xl my-5 drop-shadow-lg">
+          System Engineer
+        </p>
         <div className="flex space-x-2 my-2">
           {experience.technologies.map((tech) => (
             <img
               key={tech._id}
-              className="rounded-full h-10 w-10"
+              className="rounded-full h-10 w-10 drop-shadow-lg"
               src={urlFor(tech?.image).url()}
               alt="mytech"
             />

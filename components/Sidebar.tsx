@@ -5,6 +5,7 @@ import {
   DocumentMagnifyingGlassIcon,
   FireIcon,
   UserIcon,
+  CheckBadgeIcon,
 } from "@heroicons/react/24/solid";
 import SidebarRow from "./SidebarRow";
 
@@ -46,6 +47,12 @@ export default function Sidebar({ sidebarOn, setSidebarOn }: Props) {
           Icon={SparklesIcon}
           title="Skills"
           anchorId="skills"
+          toAnchor={toAnchor}
+        />
+        <SidebarRow
+          Icon={CheckBadgeIcon}
+          title="Certifications"
+          anchorId="certifications"
           toAnchor={toAnchor}
         />
         <SidebarRow
