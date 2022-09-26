@@ -19,7 +19,7 @@ export const queryProjects = groq`
 `;
 
 export const querySkills = groq`
-    *[_type == "skill"] | order(displayOrder asc)
+    *[_type == "skill"] | order(displayOrder asc)[0..15]
 `;
 
 export const querySocials = groq`
