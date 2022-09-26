@@ -21,20 +21,22 @@ export default function ExperienceCard({ experience }: Props) {
         alt="myexperience"
       />
       <div className="flex flex-col justify-center items-center px-0 md:px-10 text-left">
-        <p className="font-bold text-2xl md:text-4xl my-5 drop-shadow-lg">
+        <p className="font-bold text-2xl md:text-5xl my-5">
           System Engineer
         </p>
         <div className="flex space-x-2 my-2">
           {experience.technologies.map((tech) => (
             <img
               key={tech._id}
-              className="rounded-full h-10 w-10 drop-shadow-lg"
+              className={`${
+                tech.square ? "" : "rounded-full"
+              } object-contain border border-white w-10 h-10 md:w-16 md:h-16`}
               src={urlFor(tech?.image).url()}
               alt="mytech"
             />
           ))}
         </div>
-        <p className="uppercase py-5 text-gray-300">
+        <p className="uppercase py-5 text-gray-300 md:text-xl">
           {new Date(experience.dateStarted).toDateString()} -{" "}
           {experience.isCurrentlyWorkingHere
             ? "Present"

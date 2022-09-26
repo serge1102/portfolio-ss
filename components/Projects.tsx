@@ -8,6 +8,14 @@ type Props = {
 };
 
 export default function Projects({ projects }: Props) {
+  function scrollNext() {
+    const projectList = document.getElementById("projectList");
+    projectList?.scrollBy({top: 0, left: 500, behavior: "smooth"});
+  }
+  function scrollBack() {
+    const projectList = document.getElementById("projectList");
+    projectList?.scrollBy({ top: 0, left: -500, behavior: "smooth" });
+  }
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -18,8 +26,24 @@ export default function Projects({ projects }: Props) {
       <h3 className="uppercase tracking-[20px] text-gray-500 text-2xl">
         Projects
       </h3>
-
-      <div className="w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-track-gray-400/20 scrollbar-thumb-sunset-orange/80 scrollbar-thin">
+      <div
+        id="projectList"
+        className="w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-track-gray-400/20 scrollbar-thumb-sunset-orange/80 scrollbar-thin"
+      >
+        <div className="absolute flex justify-between md:justify-around left-3 right-3 top-1/2">
+          <button
+            className="text-4xl text-sunset-orange/50"
+            onClick={scrollBack}
+          >
+            ❮
+          </button>
+          <button
+            className="text-4xl text-sunset-orange/50"
+            onClick={scrollNext}
+          >
+            ❯
+          </button>
+        </div>
         {projects.map((project, i) => (
           <div
             key={project._id}
@@ -51,25 +75,25 @@ export default function Projects({ projects }: Props) {
                 <span className="underline decoration-sunset-orange/50">
                   Case Study {i + 1} of {projects.length}: <br />
                 </span>
-                {project?.title}
+                <span className="font-extrabold text-transparent text-3xl md:text-4xl bg-clip-text bg-gradient-to-r from-orange-400 to-sunset-blue background-animate">
+                  {project?.title}
+                </span>
               </h4>
-              <div className="flex items-center space-x-2 justify-center">
+              <div className="flex items-center space-x-2 justify-center md:h-20">
                 {project.technologies.map((tech) => (
                   <img
                     key={tech._id}
-                    className={`${
-          tech.square ? "" : "rounded-full"} h-10 w-10`}
+                    className={`${tech.square ? "" : "rounded-full"} h-8 w-8 md:h-10 md:w-10`}
                     src={urlFor(tech?.image).url()}
                     alt="mytech"
                   />
                 ))}
               </div>
-              {/* <p className="text-lg text-center md:text-left">
-                {project?.summary}
-              </p> */}
-              <ul className="list-disc space-y-1 ml-5 text-lg">
+              <ul className="list-disc space-y-1 md:space-y-3 ml-5 text-lg">
                 {project.points.map((point, i) => (
-                  <li key={i}>{point}</li>
+                  <li key={i} className="font-semibold">
+                    {point}
+                  </li>
                 ))}
               </ul>
             </div>

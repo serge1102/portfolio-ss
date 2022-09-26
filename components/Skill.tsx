@@ -10,9 +10,12 @@ type Props = {
 
 export default function Skill({ directionLeft, skill }: Props) {
   return (
-    <div className="group relative flex cursor-pointer">
+    <motion.div
+      whileHover={{ scale: 1.3 }}
+      className="group relative flex cursor-pointer"
+    >
       <motion.img
-        initial={{ x: directionLeft ? -90 : 90, opacity: 0 }}
+        initial={{ x: directionLeft ? "-120%" : "120%", opacity: 0 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
         src={urlFor(skill.image).fit("fill").url()}
@@ -32,6 +35,6 @@ export default function Skill({ directionLeft, skill }: Props) {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -12,7 +12,14 @@ import Sidebar from "../components/Sidebar";
 import Skills from "../components/Skills";
 import WorkExperience from "../components/WorkExperience";
 import { sanityClient, urlFor } from "../sanity";
-import { Certification, Experience, PageInfo, Project, Skill, Social } from "../typings";
+import {
+  Certification,
+  Experience,
+  PageInfo,
+  Project,
+  Skill,
+  Social,
+} from "../typings";
 import {
   queryCertifications,
   queryExperience,
@@ -28,10 +35,17 @@ type Props = {
   skills: Skill[];
   projects: Project[];
   socials: Social[];
-  certifications: Certification[]
+  certifications: Certification[];
 };
 
-const Home = ({ pageInfo, experiences, projects, skills, socials, certifications }: Props) => {
+const Home = ({
+  pageInfo,
+  experiences,
+  projects,
+  skills,
+  socials,
+  certifications,
+}: Props) => {
   const [scrollY, setScrollY] = useState(0);
   const [sidebarOn, setSidebarOn] = useState(false);
 
@@ -53,9 +67,7 @@ const Home = ({ pageInfo, experiences, projects, skills, socials, certifications
           : "scrollbar-thin scrollbar-track-sunset-blue/20 scrollbar-thumb-sunset-orange/80"
       }`}
     >
-      {sidebarOn && (
-        <Sidebar sidebarOn={sidebarOn} setSidebarOn={setSidebarOn} />
-      )}
+      <Sidebar sidebarOn={sidebarOn} setSidebarOn={setSidebarOn} />
       <Head>
         <title>{pageInfo?.name} - Portfolio</title>
       </Head>
@@ -103,9 +115,9 @@ const Home = ({ pageInfo, experiences, projects, skills, socials, certifications
         <ContactMe />
       </section> */}
 
-      <Link href="#hero">
-        <footer className="sticky bottom-5 w-full cursor-pointer">
-          <div className="flex items-center justify-center">
+      <footer className="sticky bottom-5 w-full">
+        <div className="flex items-center justify-center">
+          <Link href="#hero">
             <Image
               className="rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
               src={urlFor(pageInfo?.heroImage).url()}
@@ -113,9 +125,9 @@ const Home = ({ pageInfo, experiences, projects, skills, socials, certifications
               height={40}
               alt="myfooter"
             />
-          </div>
-        </footer>
-      </Link>
+          </Link>
+        </div>
+      </footer>
     </div>
   );
 };
@@ -129,7 +141,9 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const _projects: Project[] = await sanityClient.fetch(queryProjects);
   const projects = [_projects[1], _projects[2], _projects[3], _projects[0]];
   const socials: Social[] = await sanityClient.fetch(querySocials);
-  const certifications: Certification[] = await sanityClient.fetch(queryCertifications);
+  const certifications: Certification[] = await sanityClient.fetch(
+    queryCertifications
+  );
 
   return {
     props: {
@@ -138,7 +152,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       skills,
       projects,
       socials,
-      certifications
+      certifications,
     },
     revalidate: 10,
   };
