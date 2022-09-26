@@ -10,11 +10,11 @@ type Props = {
 export default function Projects({ projects }: Props) {
   function scrollNext() {
     const projectList = document.getElementById("projectList");
-    projectList?.scrollBy({top: 0, left: 500, behavior: "smooth"});
+    projectList?.scrollBy({top: 0, left: 50, behavior: "smooth"});
   }
   function scrollBack() {
     const projectList = document.getElementById("projectList");
-    projectList?.scrollBy({ top: 0, left: -500, behavior: "smooth" });
+    projectList?.scrollBy({ top: 0, left: -50, behavior: "smooth" });
   }
   return (
     <motion.div
