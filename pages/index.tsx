@@ -1,8 +1,5 @@
-import {
-  ChatBubbleBottomCenterIcon,
-  ChatBubbleBottomCenterTextIcon,
-} from "@heroicons/react/24/solid";
-import { motion } from "framer-motion";
+import { ChatBubbleBottomCenterTextIcon } from "@heroicons/react/24/solid";
+import { AnimatePresence, motion } from "framer-motion";
 import type { GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -121,49 +118,46 @@ const Home = ({
       {/* <section id="contact">
         <ContactMe />
       </section> */}
-      {chatbotOn && (
-        <motion.div
-          key={"my_unique_key"}
-          initial={{ opacity: 0 }}
-          exit={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-          className="fixed bottom-5 right-5 bg-white border-5 z-50"
-        >
-          <Chatbot chatbotOn={chatbotOn} setChatbotOn={setChatbotOn} />
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {chatbotOn ? (
+          <motion.div
+            key={"chatbot"}
+            initial={{ y: 200, opacity: 0 }}
+            exit={{ y: 200, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            className="fixed bottom-5 right-5 bg-white border-5 z-50"
+          >
+            <Chatbot chatbotOn={chatbotOn} setChatbotOn={setChatbotOn}/>
+          </motion.div>
+        ) : (
+          <motion.div
+            key={"chatbotIcon"}
+            initial={{ y: 20, opacity: 0 }}
+            exit={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            className="fixed bottom-5 right-5 z-50"
+          >
+            <ChatBubbleBottomCenterTextIcon
+              height={60}
+              width={60}
+              onClick={() => setChatbotOn(!chatbotOn)}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
       <footer className="sticky bottom-5 w-full">
-        <div className="ml-12 flex items-center justify-center">
-          <div className="w-full flex justify-end">
-            <Link href="#hero">
-              <Image
-                className="rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
-                src={urlFor(pageInfo?.heroImage).url()}
-                width={40}
-                height={40}
-                alt="myfooter"
-              />
-            </Link>
-          </div>
-
-          {!chatbotOn ? (
-            <div className="w-full flex justify-end px-4 animate-pulse">
-              <ChatBubbleBottomCenterTextIcon
-                height={60}
-                width={60}
-                onClick={() => setChatbotOn(!chatbotOn)}
-              />
-            </div>
-          ) : (
-            <div className="w-full flex justify-end px-4 animate-pulse">
-              <ChatBubbleBottomCenterTextIcon
-                height={60}
-                width={60}
-                onClick={() => setChatbotOn(!chatbotOn)}
-              />
-            </div>
-          )}
+        <div className="flex items-center justify-center">
+          <Link href="#hero">
+            <Image
+              className="rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
+              src={urlFor(pageInfo?.heroImage).url()}
+              width={40}
+              height={40}
+              alt="myfooter"
+            />
+          </Link>
         </div>
       </footer>
     </div>
