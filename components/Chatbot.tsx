@@ -74,7 +74,7 @@ const Chatbot = ({chatbotOn, setChatbotOn}: Props) => {
   }, [convHistory]);
 
   return (
-    <div className="relative flex flex-col justify-between items-center h-[600px] w-[300px] md:h-[700px] md:w-[500px] border-2 rounded-lg mx-auto">
+    <div className="relative flex flex-col justify-between items-center h-[90vh] w-[90vw] md:h-[80vh] md:w-[400px] border-2 rounded-lg mx-auto">
       <div className="flex border-b-2 w-full items-center">
         <h1 className="font-bold ml-10 text-sunset-blue bg-white w-full text-center p-2 text-2xl tracking-[3px] md:tracking-[3px] uppercase">
           ChatBot
