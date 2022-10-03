@@ -182,7 +182,7 @@ const Chatbot = ({ chatbotOn, setChatbotOn }: Props) => {
       <div className="flex w-full">
         <input
           type="text"
-          className="w-full bg-sunset-blue/40 focus:outline-none p-2 placeholder:text-white placeholder:font-semibold"
+          className="w-full focus:outline-none p-2 placeholder:text-gray-400/60"
           value={inputValue}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
