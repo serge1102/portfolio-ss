@@ -85,7 +85,7 @@ const Chatbot = ({ chatbotOn, setChatbotOn }: Props) => {
   }, [convHistory]);
 
   return (
-    <div className="relative flex flex-col justify-between items-center h-[90vh] w-[90vw] md:h-[80vh] md:w-[400px] border-2 rounded-lg mx-auto">
+    <div className="relative flex flex-col justify-between items-center h-[80vh] w-[90vw] md:h-[80vh] md:w-[500px] border-2 rounded-lg mx-auto">
       <AnimatePresence>
         {loading && (
           <motion.div
