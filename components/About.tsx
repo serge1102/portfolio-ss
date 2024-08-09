@@ -31,12 +31,13 @@ export default function About({ pageInfo }: Props) {
         <div className="space-y-10 px-0 md:px-10 text-center md:text-left">
           <h4 className="text-4xl font-semibold">
             Here is a{" "}
-            <span className="underline decoration-sunset-blue/50">
-              little
-            </span>{" "}
+            <span className="underline decoration-sunset-blue/50">little</span>{" "}
             background
           </h4>
-          <p className="text-base text-sunset-orange">{pageInfo?.backgroundInfomation}</p>
+          {/* 自己紹介 */}
+          <p className="text-base text-sunset-orange whitespace-pre-line">
+            {pageInfo?.backgroundInfomation}
+          </p>
         </div>
       </div>
     </motion.div>
