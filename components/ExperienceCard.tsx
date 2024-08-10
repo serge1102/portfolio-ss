@@ -21,7 +21,7 @@ export default function ExperienceCard({ experience }: Props) {
         alt="myexperience"
       />
       <div className="flex flex-col justify-center items-center px-0 md:px-10 text-left">
-        <p className="text-xl md:text-xl">{experience.company}</p>
+        <p className="text-xl md:text-xl text-center">{experience.company}</p>
         <p className="font-bold text-xl md:text-3xl my-5">
           {experience.jobTitle}
         </p>

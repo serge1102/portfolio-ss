@@ -30,8 +30,8 @@ export default function Skill({ directionLeft, skill }: Props) {
         } absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out group-hover:bg-white w-16 h-16 md:w-20 md:h-20  z-0`}
       >
         <div className="flex items-center justify-center h-full">
-          <p className="text-3xl fond-bold text-sunset-blue opacity-100">
-            {skill.progress}%
+          <p className="text-3xl fond-bold text-gray-800">
+            {skill.title}
           </p>
         </div>
       </div>

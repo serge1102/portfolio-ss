@@ -17,6 +17,7 @@
     "framer-motion": "^7.3.6",
     "next": "12.3.0",
     "next-sanity": "^0.8.4",
+    "portfolio-ss": "file:",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.36.0",

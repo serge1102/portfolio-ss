@@ -66,12 +66,12 @@ export default function Sidebar({ sidebarOn, setSidebarOn }: Props) {
               anchorId="certifications"
               toAnchor={toAnchor}
             />
-            <SidebarRow
+            {/* <SidebarRow
               Icon={DocumentMagnifyingGlassIcon}
               title="Projects"
               anchorId="projects"
               toAnchor={toAnchor}
-            />
+            /> */}
           </div>
         </motion.div>
       )}

@@ -36,7 +36,7 @@ type Props = {
   pageInfo: PageInfo;
   experiences: Experience[];
   skills: Skill[];
-  projects: Project[];
+  // projects: Project[];
   socials: Social[];
   certifications: Certification[];
 };
@@ -44,7 +44,7 @@ type Props = {
 const Home = ({
   pageInfo,
   experiences,
-  projects,
+  // projects,
   skills,
   socials,
   certifications,
@@ -103,9 +103,9 @@ const Home = ({
         <Certifications certifications={certifications} />
       </section>
 
-      <section id="projects">
+      {/* <section id="projects">
         <Projects projects={projects} />
-      </section>
+      </section> */}
 
       <section id="bottom">
         <div className="h-30 flex flex-col justify-center items-center p-10">
@@ -128,7 +128,7 @@ const Home = ({
             transition={{ duration: 0.3 }}
             className="fixed bottom-5 right-5 bg-white border-5 z-50"
           >
-            <Chatbot chatbotOn={chatbotOn} setChatbotOn={setChatbotOn}/>
+            <Chatbot chatbotOn={chatbotOn} setChatbotOn={setChatbotOn} />
           </motion.div>
         ) : (
           <motion.div
@@ -139,11 +139,23 @@ const Home = ({
             transition={{ duration: 0.3 }}
             className="fixed bottom-5 right-5 z-50"
           >
-            <ChatBubbleBottomCenterTextIcon
-              height={60}
-              width={60}
-              onClick={() => setChatbotOn(!chatbotOn)}
-            />
+            <motion.div
+              animate={{
+                y: [0, -10, 0], // y軸でのバウンスアニメーション
+              }}
+              transition={{
+                duration: 2, // アニメーションの継続時間
+                ease: "easeInOut", // アニメーションのイージング
+                repeat: Infinity, // 無限にリピート
+                repeatType: "loop", // ループする
+              }}
+            >
+              <ChatBubbleBottomCenterTextIcon
+                height={60}
+                width={60}
+                onClick={() => setChatbotOn(!chatbotOn)}
+              />
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -170,8 +182,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const pageInfo: PageInfo = await sanityClient.fetch(queryPageInfo);
   const experiences: Experience[] = await sanityClient.fetch(queryExperience);
   const skills: Skill[] = await sanityClient.fetch(querySkills);
-  const _projects: Project[] = await sanityClient.fetch(queryProjects);
-  const projects = [_projects[1], _projects[2], _projects[3], _projects[0]];
+  // const _projects: Project[] = await sanityClient.fetch(queryProjects);
+  // const projects = [_projects[1], _projects[2], _projects[3], _projects[0]];
   const socials: Social[] = await sanityClient.fetch(querySocials);
   const certifications: Certification[] = await sanityClient.fetch(
     queryCertifications
@@ -182,7 +194,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       pageInfo,
       experiences,
       skills,
-      projects,
+      // projects,
       socials,
       certifications,
     },

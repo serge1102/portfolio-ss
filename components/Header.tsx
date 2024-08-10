@@ -64,9 +64,9 @@ export default function Header({
         <Link href="#certifications">
           <a className="heroButton">Certifications</a>
         </Link>
-        <Link href="#projects">
+        {/* <Link href="#projects">
           <a className="heroButton">Projects</a>
-        </Link>
+        </Link> */}
       </motion.div>
       <motion.div
         initial={{ x: 500, opacity: 0, scale: 0.5 }}

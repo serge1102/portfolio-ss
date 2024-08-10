@@ -117,9 +117,9 @@ const Chatbot = ({ chatbotOn, setChatbotOn }: Props) => {
         className="h-full w-full overflow-auto scrollbar-none px-4 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 pb-2"
       >
         <p className="text-center mb-4 mt-2 px-2 py-1 bg-sunset-blue font-semibold text-white  rounded-md relative bot-output w-full">
-          ご利用ありがとうございます！
+          こんにちは！
           <br />
-          質問を選択してください。
+          気になる質問を選択するか、入力してみてください。
         </p>
         <div className="flex flex-col justify-center items-center border-2 rounded-xl p-2 w-fit bg-white border-none shadow-md">
           {firstOptions.map((opt) => (

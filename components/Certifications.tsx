@@ -19,7 +19,7 @@ export default function Certifications({ certifications }: Props) {
         Certifications
       </h3>
       <h3 className="uppercase tracking-[3px] text-gray-500 text-sm">
-        I have some certifications !
+        I hold a bunch of certifications !
       </h3>
       <div className="space-y-4 mt-10">
         {certifications.map((certification) => (
@@ -39,11 +39,14 @@ export default function Certifications({ certifications }: Props) {
                   alt="mycertification"
                   className={`${
                     certification?.square ? "" : "rounded-full"
-                  } object-contain border border-white md:w-36 `}
+                  } object-contain border border-white w-24 md:w-36 `}
                 />
               </motion.div>
-            ) : <div><p>hello</p></div>}
-
+            ) : (
+              <div>
+                <p>hello</p>
+              </div>
+            )}
             <motion.p
               initial={{ x: 150, opacity: 0 }}
               whileInView={{ opacity: 1, x: 0 }}
