@@ -65,6 +65,26 @@ const Home = ({
   useEffect(() => {
     const main: HTMLElement = document.querySelector("#main")!;
     main!.addEventListener("scroll", () => handleScroll(main));
+
+    // Function to check screen width and update chatbotOn state
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setChatbotOn(false); // Mobile size
+      } else {
+        setChatbotOn(true); // PC size
+      }
+    };
+
+    // Initial check when the component mounts
+    handleResize();
+
+    // // Add event listener to handle window resize
+    // window.addEventListener("resize", handleResize);
+
+    // // Cleanup event listener on component unmount
+    // return () => {
+    //   window.removeEventListener("resize", handleResize);
+    // };
   }, []);
 
   return (
