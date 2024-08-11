@@ -17,7 +17,7 @@ export default function WorkExperience({ experiences }: Props) {
         Experience
       </h3>
 
-      <div className="grid md:grid-cols-2">
+      <div className="grid md:grid-cols-2 md:mt-20">
         {experiences.map((experience) => (
           <ExperienceCard key={experience._id} experience={experience} />
         ))}

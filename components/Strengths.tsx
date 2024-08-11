@@ -21,7 +21,7 @@ export default function Strengths({ strengths }: Props) {
       <h3 className="uppercase tracking-[3px] text-gray-500 text-sm">
         Here are some of my strengths
       </h3>
-      <div className="grid md:grid-cols-3 gap-10 mt-5">
+      <div className="grid md:grid-cols-3 gap-10 mt-10 md:mt-20">
         {strengths.map((strength) => (
           <motion.div
             key={strength?._id}
