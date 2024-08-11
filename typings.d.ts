@@ -78,3 +78,11 @@ export interface Certification extends SanityBody {
   displayOrder: number;
   square: boolean;
 }
+
+export interface Strength extends SanityBody {
+  _type: "strength";
+  image: Image;
+  title: string;
+  displayOrder: number;
+  description: string;
+}

@@ -6,6 +6,9 @@ import {
   FireIcon,
   UserIcon,
   CheckBadgeIcon,
+  PowerIcon,
+  BookmarkIcon,
+  BoltIcon,
 } from "@heroicons/react/24/solid";
 import SidebarRow from "./SidebarRow";
 import { AnimatePresence, motion } from "framer-motion";
@@ -46,6 +49,12 @@ export default function Sidebar({ sidebarOn, setSidebarOn }: Props) {
               Icon={UserIcon}
               title="About"
               anchorId="about"
+              toAnchor={toAnchor}
+            />
+            <SidebarRow
+              Icon={BoltIcon}
+              title="Strengths"
+              anchorId="strengths"
               toAnchor={toAnchor}
             />
             <SidebarRow

@@ -35,7 +35,7 @@ export default function About({ pageInfo }: Props) {
             background
           </h4>
           {/* 自己紹介 */}
-          <p className="text-base text-sunset-orange whitespace-pre-line">
+          <p className="text-base text-left text-sunset-orange whitespace-pre-line">
             {pageInfo?.backgroundInfomation}
           </p>
         </div>

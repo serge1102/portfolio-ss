@@ -29,3 +29,7 @@ export const querySocials = groq`
 export const queryCertifications = groq`
     *[_type == "certification"] | order(displayOrder asc)
 `;
+
+export const queryStrengths = groq`
+    *[_type == "strength"] | order(displayOrder asc)
+`;

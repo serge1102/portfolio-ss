@@ -22,6 +22,7 @@ import {
   Project,
   Skill,
   Social,
+  Strength,
 } from "../typings";
 import {
   queryCertifications,
@@ -30,7 +31,9 @@ import {
   queryProjects,
   querySkills,
   querySocials,
+  queryStrengths,
 } from "../utils/groq/groqUtil";
+import Strengths from "../components/Strengths";
 
 type Props = {
   pageInfo: PageInfo;
@@ -39,6 +42,7 @@ type Props = {
   // projects: Project[];
   socials: Social[];
   certifications: Certification[];
+  strengths: Strength[];
 };
 
 const Home = ({
@@ -48,6 +52,7 @@ const Home = ({
   skills,
   socials,
   certifications,
+  strengths
 }: Props) => {
   const [scrollY, setScrollY] = useState(0);
   const [sidebarOn, setSidebarOn] = useState(false);
@@ -89,6 +94,10 @@ const Home = ({
 
       <section id="about">
         <About pageInfo={pageInfo} />
+      </section>
+
+      <section id="strengths">
+        <Strengths strengths={strengths} />
       </section>
 
       <section id="experience">
@@ -188,6 +197,10 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const certifications: Certification[] = await sanityClient.fetch(
     queryCertifications
   );
+  const strengths: Strength[] = await sanityClient.fetch(
+    queryStrengths
+  );
+
 
   return {
     props: {
@@ -197,6 +210,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       // projects,
       socials,
       certifications,
+      strengths
     },
     revalidate: 10,
   };

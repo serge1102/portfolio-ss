@@ -55,6 +55,9 @@ export default function Header({
         <Link href="#about">
           <button className="heroButton">About</button>
         </Link>
+        <Link href="#strengths">
+          <button className="heroButton">Strengths</button>
+        </Link>
         <Link href="#experience">
           <button className="heroButton">Experience</button>
         </Link>

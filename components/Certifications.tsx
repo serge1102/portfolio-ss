@@ -29,7 +29,7 @@ export default function Certifications({ certifications }: Props) {
           >
             {certification.image ? (
               <motion.div
-                initial={{ x: -150, opacity: 0 }}
+                initial={{ x: -100, opacity: 0 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
                 viewport={{ once: true }}
@@ -39,7 +39,7 @@ export default function Certifications({ certifications }: Props) {
                   alt="mycertification"
                   className={`${
                     certification?.square ? "" : "rounded-full"
-                  } object-contain border border-white w-24 md:w-36 `}
+                  } object-contain border border-white w-16 md:w-36 `}
                 />
               </motion.div>
             ) : (
@@ -52,7 +52,7 @@ export default function Certifications({ certifications }: Props) {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true }}
-              className="md:text-2xl font-semibold"
+              className="w-48 md:w-auto text-sm md:text-2xl font-semibold"
             >
               {certification?.title}
             </motion.p>
